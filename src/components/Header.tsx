@@ -14,7 +14,11 @@ const Header = () => {
             <Link
               key={route.path}
               to={route.path}
-              style={{ textDecoration: route.path === pathname ? 'underline' : 'none' }}
+              style={
+                route.path === pathname
+                  ? { textDecoration: 'underline', fontWeight: 'bold' }
+                  : { textDecoration: 'none' }
+              }
             >
               {route.id}
             </Link>
