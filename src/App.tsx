@@ -1,12 +1,13 @@
-import MyRouter from './MyRouter';
-import { ThemeProvider } from './ThemeProvider';
-import { Welcome } from './Welcome/Welcome';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider, theme } from './ThemeProvider';
+import MyAppShell from './components/MyAppShell';
 
 export default function App() {
   return (
     <ThemeProvider>
-      <MyRouter />
-      <Welcome />
+      <BrowserRouter>
+        <MyAppShell />
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

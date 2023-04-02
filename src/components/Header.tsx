@@ -1,32 +1,35 @@
 import React from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { Group } from '@mantine/core';
-import { routes } from '../MyRouter';
+import { Header, MediaQuery, Burger } from '@mantine/core';
 
-const Header = () => {
-  const { pathname } = useLocation();
-
+const MyHeader = ({ opened, setOpened }) => {
   return (
-    <header>
-      <nav>
-        <Group position="center">
-          {routes.map((route) => (
-            <Link
-              key={route.path}
-              to={route.path}
-              style={
-                route.path === pathname
-                  ? { textDecoration: 'underline', fontWeight: 'bold' }
-                  : { textDecoration: 'none' }
-              }
-            >
-              {route.id}
-            </Link>
-          ))}
-        </Group>
-      </nav>
-    </header>
+    <Header
+      height={60}
+      p="xs"
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'right',
+          alignItems: 'center',
+          height: '100%',
+        }}
+      >
+        <MediaQuery
+          largerThan="sm"
+          styles={{ display: 'none' }}
+        >
+          <Burger
+            opened={opened}
+            onClick={() => setOpened((o) => !o)}
+            size="sm"
+            // color={theme.colors.gray[6]}
+            mr="xl"
+          />
+        </MediaQuery>
+      </div>
+    </Header>
   );
 };
 
-export default Header;
+export default MyHeader;
