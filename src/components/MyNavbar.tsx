@@ -2,7 +2,7 @@ import { Navbar } from '@mantine/core';
 import React from 'react';
 import MyLink from './MyLink';
 
-const MyNavbar = ({ opened, routes }: { opened: boolean }) => {
+const MyNavbar = ({ opened, routes }) => {
   return (
     <Navbar
       p="md"

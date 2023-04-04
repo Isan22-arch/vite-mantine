@@ -1,28 +1,26 @@
 import { Stack } from '@mantine/core';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const MyLink = ({ routes }) => {
-  const { pathname } = useLocation();
-
   return (
     <Stack
       align="center"
       justify="space-between"
     >
-      {routes.map((route) => (
-        <Link
-          key={route.path}
-          to={route.path}
-          style={
-            route.path === pathname
-              ? { textDecoration: 'underline', fontWeight: 'bold' }
-              : { textDecoration: 'none' }
-          }
-        >
-          {route.id}
-        </Link>
-      ))}
+      {routes
+        .filter((route) => route.id !== 'NotFound')
+        .map((route) => (
+          <NavLink
+            key={route.path}
+            to={route.path}
+            style={({ isActive }) =>
+              isActive ? { color: '#f00' } : { textDecoration: 'none' }
+            }
+          >
+            {route.id}
+          </NavLink>
+        ))}
     </Stack>
   );
 };
