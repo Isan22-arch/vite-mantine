@@ -1,19 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
-import Post from './Post';
-import PostIndex from './PostIndex';
+import { Outlet } from 'react-router-dom';
 
 const Posts = () => {
   return (
-    <Routes>
-      <Route
-        index
-        element={<PostIndex />}
-      />
-      <Route
-        path=":postId"
-        element={<Post />}
-      />
-    </Routes>
+    <>
+      <Outlet />
+    </>
   );
 };
 
